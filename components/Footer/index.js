@@ -1,80 +1,58 @@
-"use client";
 import React from "react";
-import { FaFacebookF, FaTwitter, FaLinkedinIn, FaInstagram } from "react-icons/fa";
-import Link from "next/link";
+import footerImg from "@/assets/Images/footerImage.jpg";
 
 const Footer = () => {
   return (
-    <div className="bg-black border-t  mt-16">
-      <div className="w-full max-w-6xl mx-auto px-4 py-12 grid grid-cols-1 md:grid-cols-4 gap-8">
-        
-        {/* Brand / About */}
+    <footer
+      className="relative text-white bg-cover bg-center bg-no-repeat"
+      style={{ backgroundImage: `url(${footerImg})` }}
+    >
+      {/* Dark overlay */}
+      <div className="absolute inset-0 bg-[#212121] min-h-[400px]"></div>
+
+      <div className="relative z-10 max-w-7xl mx-auto px-6 py-16 grid md:grid-cols-3 gap-12">
+        {/* Column 1 */}
         <div>
-          <h2 className="text-xl font-bold text-neutral-200">YourBrand</h2>
-          <p className="mt-3 text-sm text-neutral-100 leading-relaxed">
-            Making money transfer easier, faster, and transparent.  
-            Compare, choose, and save — all in one place.
+          <h2 className="text-2xl font-bold mb-4">LearnO</h2>
+          <p className="text-sm leading-relaxed opacity-90">
+            Empowering students with resources, guidance, and a connected
+            community to achieve academic and career success.
           </p>
         </div>
 
-        {/* Quick Links */}
+        {/* Column 2 */}
         <div>
-          <h3 className="text-sm font-semibold text-neutral-200 tracking-wide">Quick Links</h3>
-          <ul className="mt-4 space-y-3">
-            <li><Link href="/" className="text-neutral-100  hover:text-gray-900 text-sm">Home</Link></li>
-            <li><Link href="/about" className="text-neutral-100  hover:text-gray-900 text-sm">About Us</Link></li>
-            <li><Link href="/compare" className="text-neutral-100  hover:text-gray-900 text-sm">Compare Rates</Link></li>
-            <li><Link href="/blog" className="text-neutral-100  hover:text-gray-900 text-sm">Blog</Link></li>
+          <h2 className="text-lg font-semibold mb-4">Quick Links</h2>
+          <ul className="space-y-3 text-sm">
+            {["Home", "About", "Courses", "FAQ"].map((link, index) => (
+              <li key={index}>
+                <a
+                  href="#"
+                  className="transition-colors duration-300 hover:text-blue-400"
+                >
+                  {link}
+                </a>
+              </li>
+            ))}
           </ul>
         </div>
 
-        {/* Support */}
+        {/* Column 3 */}
         <div>
-          <h3 className="text-sm font-semibold text-neutral-300 tracking-wide">Support</h3>
-          <ul className="mt-4 space-y-3">
-            <li><Link href="/faq" className="text-neutral-100  hover:text-gray-900 text-sm">FAQ</Link></li>
-            <li><Link href="/contact" className="text-neutral-100  hover:text-gray-900 text-sm">Contact</Link></li>
-            <li><Link href="/terms" className="text-neutral-100  hover:text-gray-900 text-sm">Terms & Conditions</Link></li>
-            <li><Link href="/privacy" className="text-neutral-100  hover:text-gray-900 text-sm">Privacy Policy</Link></li>
+          <h2 className="text-lg font-semibold mb-4">Contact Us</h2>
+          <ul className="space-y-3 text-sm opacity-90">
+            <li>Email: support@LearnO.com</li>
+            <li>Phone: +91 98765 43210</li>
+            <li>Address: New Delhi, India</li>
           </ul>
         </div>
-
-        {/* Newsletter / Social */}
-        <div>
-          <h3 className="text-sm font-semibold text-neutral-200  tracking-wide">Stay Updated</h3>
-          <p className="mt-3 text-sm text-neutral-100 ">Subscribe to our newsletter</p>
-          <form className="mt-4 flex">
-            <input
-              type="email"
-              placeholder="Enter your email"
-              className="w-full px-3 py-2 text-sm border  rounded-l-lg"
-            />
-            <button
-              type="submit"
-              className="px-4 py-2 text-sm bg-amber-600 text-white rounded-r-lg hover:bg-indigo-700"
-            >
-              Subscribe
-            </button>
-          </form>
-
-          {/* Social Links */}
-          <div className="flex space-x-4 mt-6">
-            <Link href="#" className="text-blue-500 hover:text-indigo-600"><FaFacebookF /></Link>
-            <Link href="#" className="text-cyan-400 hover:text-indigo-600"><FaTwitter /></Link>
-            <Link href="#" className="text-blue-700 hover:text-indigo-600"><FaLinkedinIn /></Link>
-            <Link href="#" className="text-red-800 hover:text-indigo-600"><FaInstagram /></Link>
-          </div>
-        </div>
       </div>
 
-      {/* Bottom Bar */}
-      <div className="border-t border-gray-200 mt-8">
-        <div className="w-full max-w-6xl mx-auto px-4 py-6 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-sm text-gray-500">© {new Date().getFullYear()} YourBrand. All rights reserved.</p>
-          <p className="text-sm text-gray-500 mt-2 md:mt-0">Built with ❤️ for transparency</p>
-        </div>
+      {/* Bottom */}
+      <div className="relative z-10 text-center text-xs mt-10 border-t border-gray-600 pt-6 opacity-80">
+        © {new Date().getFullYear()} <span className="font-semibold">LearnO</span>. All rights reserved.
       </div>
-    </div>
+    </footer>
   );
 };
 
